@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/Soemii/AdventOfCode/internal/util"
 	"github.com/Soemii/AdventOfCode/internal/year2022/day1"
+	"github.com/Soemii/AdventOfCode/internal/year2022/day2"
 	"log"
 )
 
@@ -16,7 +17,7 @@ func main() {
 	flag.Parse()
 	path := fmt.Sprintf("./data/%v/day%v.txt", *year, *day)
 	if *example {
-		path = fmt.Sprintf("./data/%v/example-%v.txt", *year, *day)
+		path = fmt.Sprintf("./data/%v/example%v.txt", *year, *day)
 	}
 	challengeName := fmt.Sprintf("%v:%v:%v", *year, *day, *challenge)
 	fileContent, err := util.ReadFile(path)
@@ -37,6 +38,8 @@ func registerChallenges() map[string]util.Challenge {
 	challenges := make(map[string]util.Challenge)
 	registerChallenge(day1.Day1_1{}, challenges)
 	registerChallenge(day1.Day1_2{}, challenges)
+	registerChallenge(day2.Day2_1{}, challenges)
+	registerChallenge(day2.Day2_2{}, challenges)
 	return challenges
 }
 
