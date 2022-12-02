@@ -1,10 +1,44 @@
 package day2
 
-type Day2_2 struct{}
+import (
+	"fmt"
+	"strings"
+)
 
-func (Day2_2) Solve(content string) {
-	//TODO implement me
-	panic("implement me")
+type Day2_2 struct {
+	points int
+}
+
+func (d Day2_2) Solve(content string) {
+	lines := strings.Split(content, "\n")
+	for _, line := range lines {
+		split := strings.Split(line, " ")
+		me := SchereSteinPapier{}
+		elb := SchereSteinPapier{}
+		switch split[0] {
+		case "A":
+			elb.stein = true
+		case "B":
+			elb.papier = true
+		case "C":
+			elb.schere = true
+		}
+		switch split[1] {
+		case "X":
+			me = elb.GetLose()
+		case "Y":
+			me = elb.GetDraw()
+		case "Z":
+			me = elb.GetWin()
+		}
+		d.points += me.GetPoints()
+		if me.win(elb) {
+			d.points += 6
+		} else if me.draw(elb) {
+			d.points += 3
+		}
+	}
+	fmt.Println(d.points)
 }
 
 func (Day2_2) Name() string {
