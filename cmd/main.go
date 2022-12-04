@@ -7,6 +7,7 @@ import (
 	"github.com/Soemii/AdventOfCode/internal/year2022/day1"
 	"github.com/Soemii/AdventOfCode/internal/year2022/day2"
 	"github.com/Soemii/AdventOfCode/internal/year2022/day3"
+	"github.com/Soemii/AdventOfCode/internal/year2022/day4"
 	"log"
 )
 
@@ -43,6 +44,8 @@ func registerChallenges() map[string]util.Challenge {
 	registerChallenge(day2.Day2_2{}, challenges)
 	registerChallenge(day3.Day3_1{}, challenges)
 	registerChallenge(day3.Day3_2{}, challenges)
+	registerChallenge(day4.Day4_1{}, challenges)
+	registerChallenge(day4.Day4_2{}, challenges)
 	return challenges
 }
 
